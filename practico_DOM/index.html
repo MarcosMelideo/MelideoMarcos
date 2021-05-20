@@ -28,7 +28,7 @@
 
     <hr />
     <div style="width: auto; height: auto; text-align: center; padding-top: 10px;">
-        <select onchange="mostrar_numero()" id="numeros" name="numeros" style="width: 100px;">
+        <select onchange="mostrar_numero()" name="numeros" style="width: 100px;">
             <option value="1">uno</option>
             <option value="2">dos</option>
             <option value="3">tres</option>
@@ -43,7 +43,7 @@
     <hr />
 
     <div style="width: auto; height: auto; text-align: center; padding-top: 10px;">
-        <input type="number" id="valor1" name="valor11"> + <input type="number" id="valor2" name="valor22"> = <input type="number" id="resultado" name="resultado"><br>
+        <input type="number" name="valor1"> + <input type="number" name="valor2"> = <input type="number" name="resultado"><br>
         <button onclick="sumar()" name="suma">Sumar</button>
     </div>
     <hr />
@@ -71,7 +71,7 @@
         }
 
         function mostrar_numero () {
-            alert(document.getElementById("numeros").value);
+            alert(document.getElementsByName("numeros")[0].value);
         }
 
         function alert_text_area () {
@@ -80,17 +80,17 @@
 
         function sumar () {
 
-            if (document.getElementById("valor1").value == "") {
+            if (document.getElementsByName("valor1")[0].value == "") {
                 alert ("ingrese algun numero"); 
             }
-            if (document.getElementById("valor2").value == ""){
+            else if (document.getElementsByName("valor2")[0].value == ""){
                 alert ("ingrese algun numero");
             }
             else{
-                var n1 = Number(document.getElementById("valor1").value);
-                var n2 = Number(document.getElementById("valor2").value);
-                var res = n1+n2;
-                document.getElementById("resultado").value=res;
+                var n1 = Number(document.getElementsByName("valor1")[0].value);
+                var n2 = Number(document.getElementsByName("valor2")[0].value);
+                var total = n1+n2;
+                document.getElementsByName("resultado")[0].value=total; 
             }
         }
         
