@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="width: auto; height: auto; text-align: center;">
+        <span style="color: red;">
+            <h1>Selectores DOM</h1>
+        </span>
+
+        <div style="width: auto; height: auto; text-align: center;">
+            <h1 onmouseenter="entra_mouse(this)"  onmouseleave="sale_mouse(this)" id="texto1">TEXTO 1</h1>
+        </div>
+
+        <hr />
+        <select onchange="mostrar_color()" name="colores" id="colores" style="width: 100px;">
+            <option value="amarillo" >Amarillo</option>
+            <option value="azul">Azul</option>
+            <option value="rojo">Rojo</option>
+        </select>
+    </div>
+
+    <hr />
+    <div style="width: auto; height: auto; text-align: center; padding-top: 10px;">
+        <select onchange="mostrar_numero()" id="numeros" name="numeros" style="width: 100px;">
+            <option value="1">uno</option>
+            <option value="2">dos</option>
+            <option value="3">tres</option>
+        </select>
+    </div>
+    <hr />
+
+    <div style="width: auto; height: auto; text-align: center; padding-top: 10px;">
+        <textarea ondblclick="alert_text_area()" id="textarea">Esto es un ejercicio practico de programacion II</textarea>
+    </div>
+
+    <hr />
+
+    <div style="width: auto; height: auto; text-align: center; padding-top: 10px;">
+        <input type="number" id="valor1" name="valor11"> + <input type="number" id="valor2" name="valor22"> = <input type="number" id="resultado" name="resultado"><br>
+        <button onclick="sumar()" name="suma">Sumar</button>
+    </div>
+    <hr />
+
+    <div style="background-color: chartreuse; color: red;">
+        Esto es un DIV
+    </div>
+    <hr />
+
+
+
+    <script>
+       
+        
+        function entra_mouse(x) {
+            x.style.color= "red"; 
+        }
+
+        function sale_mouse(x) {
+            x.style.color= "black"; 
+        }
+
+        function mostrar_color () {
+            alert(document.getElementById("colores").value);
+        }
+
+        function mostrar_numero () {
+            alert(document.getElementById("numeros").value);
+        }
+
+        function alert_text_area () {
+            alert(document.getElementById("textarea").value);
+        }
+
+        function sumar () {
+
+            if (document.getElementById("valor1").value == "") {
+                alert ("ingrese algun numero"); 
+            }
+            if (document.getElementById("valor2").value == ""){
+                alert ("ingrese algun numero");
+            }
+            else{
+                var n1 = Number(document.getElementById("valor1").value);
+                var n2 = Number(document.getElementById("valor2").value);
+                var res = n1+n2;
+                document.getElementById("resultado").value=res;
+            }
+        }
+        
+
+
+    </script>
+</body>
+
+</html>
