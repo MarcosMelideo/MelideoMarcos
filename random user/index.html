@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Random User</title>
+  </head>
+  <body>
+    <div class="container my-5 text-center" onclick="mostrar_datos()" id="obtener">
+        <button type="button" class="btn btn-primary">Obtener</button>
+        <div class="mt-5" id="datos">
+            
+        </div>
+    </div>
+    
+    <script>
+        var datos = document.querySelector("#datos")
+        function mostrar_datos() {
+            fetch("https://randomuser.me/api/")
+            .then ( res => res.json())
+            .then ( data => {
+                datos.innerHTML = `
+                <img src="${data.results["0"].picture.large}" width="200px" class="img-fluid rounded">
+                <p>Nombre: ${data.results["0"].name.first}</p>
+                <p>Apellido: ${data.results["0"].name.last}</p>
+                <p>Cell: ${data.results["0"].cell}</p>
+                <p>Mail: ${data.results["0"].email}</p>
+                `
+            })
+        }
+    </script>
+  </body>
+</html>
